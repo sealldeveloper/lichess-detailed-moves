@@ -51,7 +51,7 @@
         const formAnalysis = document.getElementsByClassName('future-game-analysis')[0];
 
         if (typeof(formAnalysis) !== 'undefined') {
-            alert('Lichess Good Moves: please run an analysis and reload the page when finished. You will then be prompted to accept cross-origin resource : you can safely allow it (it will fetch data for an opening API) !');
+            alert('Lichess Detailed Moves: Please run an analysis and reload the page when finished. You will then be prompted to accept cross-origin resource : you can safely allow it (it will fetch data for an opening API) !');
         }
 
         /**
@@ -61,11 +61,11 @@
             && document.getElementsByClassName('future-game-analysis').length === 0
             && document.getElementsByClassName('computer-analysis active').length > 0) {
 
-            const ecoCodesApiUrl = 'https://raw.githubusercontent.com/tomsihap/eco.json/master/eco.json';
+            const ecoCodesApiUrl = 'https://github.com/sealldeveloper/lichess-detailed-moves/raw/main/data/eco.json';
 
             /**
              * Loads ECO codes API
-             * https://raw.githubusercontent.com/tomsihap/eco.json/master/eco.json
+             * https://github.com/sealldeveloper/lichess-detailed-moves/raw/main/data/eco.json
              */
             function loadEcoCodesApi() {
                 GM.xmlHttpRequest({
@@ -75,7 +75,7 @@
                         lichessGoodMoves(JSON.parse(response.responseText));
                     },
                     onerror: function(err) {
-                        alert('Lichess Good Moves script cannot be launched (maybe you have forbid the access to a cross-origin resource ?) - Refresh the page if you want to start again.');
+                        alert('Lichess Detailed Moves: The script cannot be launched (maybe you have forbid the access to a cross-origin resource ?) - Refresh the page if you want to start again.');
                     }
                 });
             }
@@ -242,33 +242,34 @@
                 const whiteTable = whiteInaccuracies.parentElement;
                 const blackTable = blackInaccuracies.parentElement;
               	function dataPoint(colour,symbol,data,text,table,coloured) {
-                  var first = true
-                  table.childNodes.forEach(node => {
-											if (node.classList.contains('inaccuracy') && first === true) {
-                        const before=node
-                        const div = document.createElement('div');
-                        if (data !== 0){
-                          div.style='color: '+coloured;
+                    var first = true
+                    table.childNodes.forEach(node => {
+                        if (node.classList.contains('inaccuracy') && first === true) {
+                            const before=node
+                            const div = document.createElement('div');
+                            if (data !== 0){
+                                div.style='color: '+coloured;
+                            }
+                            div.classList.add('symbol');
+                            div.classList.add('advice-summary__error');
+                            div.setAttribute('data-color', colour);
+                            div.setAttribute('data-symbol', symbol);
+                            const strong = document.createElement('strong')
+                            strong.innerHTML = data;
+                            div.append(strong)
+                            div.innerHTML = div.innerHTML+text;
+                            table.insertBefore(div,before);
+                            first = false
                         }
-                        div.classList.add('symbol');
-                        div.classList.add('advice-summary__error');
-                        div.setAttribute('data-color', colour);
-                        div.setAttribute('data-symbol', symbol);
-                        const strong = document.createElement('strong')
-                        strong.innerHTML = data;
-                        div.append(strong)
-                        div.innerHTML = div.innerHTML+text;
-                        table.insertBefore(div,before);
-                        first = false
-                      }
-                  })
+                    })
                 }
-              
+                // White
               	dataPoint('white','!!',goodMoves.white.brillant,' brilliancies',whiteTable,'#1baca6')   
               	dataPoint('white','!',goodMoves.white.excellent,' excellencies',whiteTable,'#96bc4b')
               	dataPoint('white','!?',goodMoves.white.good,' greats',whiteTable,'#b2f196')
               	dataPoint('white','Book',goodMoves.white.book,' book',whiteTable,'#a88865')
 			
+                // Black
                 dataPoint('black','!!',goodMoves.black.brillant,' brilliancies',blackTable,'#1baca6')
               	dataPoint('black','!',goodMoves.black.excellent,' excellencies',blackTable,'#96bc4b')
               	dataPoint('black','!?',goodMoves.black.good,' greats',blackTable,'#b2f196')
@@ -279,11 +280,7 @@
 
             function lichessGoodMoves(ecoCodes) {
 
-                console.log('Lichess Good Moves successfully started.');
-
-                /**
-                 * Load moves
-                 */
+                console.log('Lichess Detailed Moves: Successfully started!');
 
                 loadMoves(ecoCodes);
                 showDataInTable();
