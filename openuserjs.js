@@ -1,5 +1,6 @@
 // ==OpenUserJS==
 // @name         Lichess - Detailed Moves
+// @license      GNU GPLv3 
 // @namespace    https://github.com/sealldeveloper/lichess-better-moves
 // @updateURL    https://raw.githubusercontent.com/sealldeveloper/lichess-detailed-moves/main/script.js
 // @version      0.1
