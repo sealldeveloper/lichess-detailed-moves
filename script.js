@@ -1,16 +1,19 @@
 // ==UserScript==
-// @name         Lichess - Detailed Moves
-// @license      GNU GPLv3 
-// @namespace    https://github.com/sealldeveloper/lichess-better-moves
-// @updateURL    https://raw.githubusercontent.com/sealldeveloper/lichess-detailed-moves/main/script.js
-// @version      0.1
-// @description  Show brillant, excellent, great and book moves on lichess.org as chess.com does, an updated version of Thomas Sihapanya's version.
-// @author       Seall.DEV & Thomas Sihapnya
-// @require      https://greasyfork.org/scripts/47911-font-awesome-all-js/code/Font-awesome%20AllJs.js?version=275337
-// @include      /^https\:\/\/lichess\.org\/[a-zA-Z0-9]{8,}/
-// @grant        GM.xmlHttpRequest
-// @grant        unsafeWindow
+// @name            Lichess - Detailed Moves
+// @license         GNU GPLv3 
+// @namespace       https://github.com/sealldeveloper/lichess-better-moves
+// @contributionURL https://github.com/sealldeveloper/lichess-better-moves
+// @version         0.1
+// @description     Show brillant, excellent, great and book moves on lichess.org as chess.com does, an updated version of Thomas Sihapanya's version.
+// @author          Seall.DEV & Thomas Sihapnya
+// @require         https://greasyfork.org/scripts/47911-font-awesome-all-js/code/Font-awesome%20AllJs.js?version=275337
+// @include         /^https\:\/\/lichess\.org\/[a-zA-Z0-9]{8,}/
+// @grant           GM.xmlHttpRequest
+// @grant           unsafeWindow
 // ==/UserScript==
+// ==OpenUserJS==
+// @author          sealldeveloper
+// ==/OpenUserJS==
 
 (function() {
     'use strict';
