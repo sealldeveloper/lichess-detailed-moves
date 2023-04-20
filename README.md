@@ -3,7 +3,7 @@
 > This is an updated version of Thomas Sihapnya [lichess-good-moves](https://github.com/tomsihap/lichess-good-moves/)
 
 > Displays brilliant, excellent and great moves into Lichess analysis, the same way Chess.com does.
-> The accuracy may be debated and just like chess.com does, there is no consensus on what makes a move being a good move. This is purely informational and to have a more optimisic analysis of you game !
+> The accuracy may be debated and just like chess.com does, there is no consensus on what makes a move being a good move. This is purely informational and to have a more optimistic analysis of you game!
 > 
 > Please feel free to contribute !
 
