@@ -10,6 +10,7 @@
 // @include         /^https\:\/\/lichess\.org\/[a-zA-Z0-9]{8,}/
 // @grant           GM.xmlHttpRequest
 // @grant           unsafeWindow
+// @inject-into     content
 // ==/UserScript==
 // ==OpenUserJS==
 // @author          sealldeveloper
