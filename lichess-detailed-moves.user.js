@@ -3,7 +3,7 @@
 // @license         GPL-3.0-only 
 // @namespace       https://github.com/sealldeveloper/lichess-better-moves
 // @contributionURL https://github.com/sealldeveloper/lichess-better-moves
-// @version         0.3
+// @version         0.4
 // @description     Show brillant, excellent, great and book moves on lichess.org as chess.com does, an updated version of Thomas Sihapanya's version.
 // @author          Seall.DEV & Thomas Sihapnya
 // @require         https://greasyfork.org/scripts/47911-font-awesome-all-js/code/Font-awesome%20AllJs.js?version=275337
