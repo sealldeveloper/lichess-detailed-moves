@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Lichess - Detailed Moves
 // @namespace    https://github.com/sealldeveloper/lichess-better-moves
-// @updateURL    https://github.com/sealldeveloper/lichess-better-moves
+// @updateURL    https://raw.githubusercontent.com/sealldeveloper/lichess-detailed-moves/main/script.js
 // @version      0.1
 // @description  Show brillant, excellent, great and book moves on lichess.org as chess.com does, an updated version of Thomas Sihapanya's version.
 // @author       Seall.DEV & Thomas Sihapnya
