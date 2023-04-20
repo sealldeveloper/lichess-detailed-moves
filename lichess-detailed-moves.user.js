@@ -3,7 +3,7 @@
 // @license         GPL-3.0-only 
 // @namespace       https://github.com/sealldeveloper/lichess-better-moves
 // @contributionURL https://github.com/sealldeveloper/lichess-better-moves
-// @version         0.4
+// @version         0.5
 // @description     Show brillant, excellent, great and book moves on lichess.org as chess.com does, an updated version of Thomas Sihapanya's version.
 // @author          Seall.DEV & Thomas Sihapnya
 // @require         https://greasyfork.org/scripts/47911-font-awesome-all-js/code/Font-awesome%20AllJs.js?version=275337
@@ -238,18 +238,13 @@
             }
 
             function showDataInTable() {
-              	
-                const inaccuracyRows = document.querySelectorAll('[data-symbol="?!"]');
 
-                const whiteInaccuracies = inaccuracyRows[0];
-                const blackInaccuracies = inaccuracyRows[1];
-
-                const whiteTable = whiteInaccuracies.parentElement;
-                const blackTable = blackInaccuracies.parentElement;
+                const whiteTable = document.getElementsByClassName('advice-summary__side')[0]
+                const blackTable = document.getElementsByClassName('advice-summary__side')[1]
               	function dataPoint(colour,symbol,data,text,table,coloured) {
                     var first = true
                     table.childNodes.forEach(node => {
-                        if (node.classList.contains('inaccuracy') && first === true) {
+                        if (node.innerHTML.includes('inaccuracies') && first === true) {
                             const before=node
                             const div = document.createElement('div');
                             if (data !== 0){
