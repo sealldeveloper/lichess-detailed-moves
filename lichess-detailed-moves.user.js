@@ -18,21 +18,21 @@
 
 (function() {
     'use strict';
-    const GREAT_MOVE_THRESOLD = 0.6;
+    const GOOD_MOVE_THRESOLD = 0.6;
     const EXCELLENT_MOVE_THRESOLD = 1;
     const BRILLANT_MOVE_THRESOLD = 2;
     const CHECKMATE_IN_X_MOVES_VALUE = 100;
 
-    let greatMoves = {
+    let goodMoves = {
         white : {
             'book' : 0,
-            'great' : 0,
+            'good' : 0,
             'excellent': 0,
             'brillant': 0,
         },
         black : {
             'book' : 0,
-            'great' : 0,
+            'good' : 0,
             'excellent': 0,
             'brillant': 0,
         }
@@ -77,7 +77,7 @@
                     method: "GET",
                     url:ecoCodesApiUrl,
                     onload: function(response) {
-                        lichessGreatMoves(JSON.parse(response.responseText));
+                        lichessGoodMoves(JSON.parse(response.responseText));
                     },
                     onerror: function(err) {
                         alert('Lichess Detailed Moves: The script cannot be launched (maybe you have forbid the access to a cross-origin resource ?) - Refresh the page if you want to start again.');
@@ -139,50 +139,50 @@
                                       let moveText = node.innerHTML;
 
                                       if ("white" === currentColor) {
-                                          if (delta >= GREAT_MOVE_THRESOLD && delta < EXCELLENT_MOVE_THRESOLD) {
+                                          if (delta >= GOOD_MOVE_THRESOLD && delta < EXCELLENT_MOVE_THRESOLD) {
                                               node.innerHTML = '<span style="color: #b2f196;">'+
                                                                       moveText+'!?'+
                                                               '</span>';
 
-                                              greatMoves.white.great++;
+                                              goodMoves.white.good++;
                                           }
                                           if (delta >= EXCELLENT_MOVE_THRESOLD && delta < BRILLANT_MOVE_THRESOLD) {
                                               node.innerHTML = '<span style="color: #96bc4b;">'+
                                                                       moveText+'!'+
                                                               '</span>';
 
-                                              greatMoves.white.excellent++;
+                                              goodMoves.white.excellent++;
                                           }
                                           if (delta >= BRILLANT_MOVE_THRESOLD) {
                                               node.innerHTML = '<span style="color: #1baca6;">'+
                                                                       moveText+'!!'+
                                                               '</span>';
 
-                                              greatMoves.white.brillant++;
+                                              goodMoves.white.brillant++;
                                           }
                                       }
 
                                       if ("black" === currentColor) {
-                                          if (delta <= -GREAT_MOVE_THRESOLD && delta > -EXCELLENT_MOVE_THRESOLD) {
+                                          if (delta <= -GOOD_MOVE_THRESOLD && delta > -EXCELLENT_MOVE_THRESOLD) {
                                               node.innerHTML = '<span style="color: #b2f196;">'+
                                                                       moveText+'!?'+
                                                               '</span>';
 
-                                              greatMoves.black.great++;
+                                              goodMoves.black.good++;
                                           }
                                           if (delta <= -EXCELLENT_MOVE_THRESOLD && delta > -BRILLANT_MOVE_THRESOLD) {
                                               node.innerHTML = '<span style="color: #96bc4b;">'+
                                                                       moveText+'!'+
                                                               '</span>';
 
-                                              greatMoves.black.excellent++;
+                                              goodMoves.black.excellent++;
                                           }
                                           if (delta <= -BRILLANT_MOVE_THRESOLD) {
                                               node.innerHTML = '<span style="color: #1baca6;">'+
                                                                       moveText+'!!'+
                                                               '</span>';
 
-                                              greatMoves.black.brillant++;
+                                              goodMoves.black.brillant++;
                                           }
                                       }
 
@@ -209,7 +209,7 @@
 
                 node.parentElement.title = opening.name;
 
-                greatMoves[currentColor].book++;
+                goodMoves[currentColor].book++;
             }
 
             function checkColor(index) {
@@ -269,21 +269,21 @@
                     })
                 }
                 // White
-              	dataPoint('white','!!',greatMoves.white.brillant,' brilliancies',whiteTable,'#1baca6')   
-              	dataPoint('white','!',greatMoves.white.excellent,' excellencies',whiteTable,'#96bc4b')
-              	dataPoint('white','!?',greatMoves.white.great,' greats',whiteTable,'#b2f196')
-              	dataPoint('white','Book',greatMoves.white.book,' book',whiteTable,'#a88865')
+              	dataPoint('white','!!',goodMoves.white.brillant,' brilliancies',whiteTable,'#1baca6')   
+              	dataPoint('white','!',goodMoves.white.excellent,' excellencies',whiteTable,'#96bc4b')
+              	dataPoint('white','!?',goodMoves.white.good,' greats',whiteTable,'#b2f196')
+              	dataPoint('white','Book',goodMoves.white.book,' book',whiteTable,'#a88865')
 			
                 // Black
-                dataPoint('black','!!',greatMoves.black.brillant,' brilliancies',blackTable,'#1baca6')
-              	dataPoint('black','!',greatMoves.black.excellent,' excellencies',blackTable,'#96bc4b')
-              	dataPoint('black','!?',greatMoves.black.great,' greats',blackTable,'#b2f196')
-              	dataPoint('black','Book',greatMoves.black.book,' book',blackTable,'#a88865')
+                dataPoint('black','!!',goodMoves.black.brillant,' brilliancies',blackTable,'#1baca6')
+              	dataPoint('black','!',goodMoves.black.excellent,' excellencies',blackTable,'#96bc4b')
+              	dataPoint('black','!?',goodMoves.black.good,' greats',blackTable,'#b2f196')
+              	dataPoint('black','Book',goodMoves.black.book,' book',blackTable,'#a88865')
               	
                 
             }
 
-            function lichessGreatMoves(ecoCodes) {
+            function lichessGoodMoves(ecoCodes) {
 
                 console.log('Lichess Detailed Moves: Successfully started!');
 
