@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name            Lichess - Detailed Moves
+// @name            [DEV] Lichess - Detailed Moves
 // @license         GPL-3.0-only 
 // @namespace       https://github.com/sealldeveloper/lichess-better-moves
 // @contributionURL https://github.com/sealldeveloper/lichess-better-moves
