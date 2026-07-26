@@ -6,7 +6,7 @@
 // @version         0.6
 // @description     Show brillant, excellent, great and book moves on lichess.org as chess.com does, an updated version of Thomas Sihapanya's version.
 // @author          Seall.DEV & Thomas Sihapnya
-// @require         https://greasyfork.org/scripts/47911-font-awesome-all-js/code/Font-awesome%20AllJs.js?version=275337
+// @require         https://web.archive.org/web/20230331223657/https://greasyfork.org/scripts/47911-font-awesome-all-js/code/Font-awesome%20AllJs.js?versio
 // @include         /^https\:\/\/lichess\.org\/[a-zA-Z0-9]{8,}/
 // @grant           none
 // @inject-into     content
